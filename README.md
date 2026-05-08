@@ -34,26 +34,23 @@ url_preview_domain_explicit_allowlist = []
 
 ---
 
-### 2. Configure and run `compose.yaml`
+### 2. Configure and run [`compose.yaml`](compose.yaml)
 
-Use the following `compose.yml` file to start the container. **Adjust the paths and environment variables to match your setup.**
+Use the following [`compose.yaml`](compose.yaml) file to start the container. **Adjust the paths and environment variables to match your setup.**
 
 ```yaml
-version: "3.8"
-
 services:
   continuwuity-link-preview-updater:
-    image: mikaff0/c10y-link-preview-updater:latest
+    image: mikaff0/c10y-link-preview-updater:latest # ghcr.io/mikaff0/c10y-link-preview-updater:latest
     container_name: continuwuity-updater
     environment:
-      - CRON_SCHEDULE=0 * * * *  # Runs every hour at 0 o'clock
+      - CRON_SCHEDULE=0 * * * *  # hourly o'clock
       # - TZ=Europe/Berlin         # Set your timezone (default: UTC)
-      # Optional: Customize paths if needed (default values shown below)
+      # Optional: Customize paths (default values shown below)
       # - TEMPLATE_PATH=/data/c10y.toml
       # - DB_PATH=/data/morpheus link bot.db
       # - OUTPUT_PATH=/data/continuwuity.toml
     volumes:
-      # Adjust these paths to your host system!
       - /path/to/maubot/dbs/morpheus link bot.db:/data/morpheus link bot.db:ro
       - /path/to/your/c10y.toml:/data/c10y.toml:ro
       - /path/to/your/continuwuity.toml:/data/continuwuity.toml:rw

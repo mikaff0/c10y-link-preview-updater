@@ -1,5 +1,9 @@
 FROM python:3.11-alpine
 
+LABEL org.opencontainers.image.source=https://github.com/mikaff0/c10y-link-preview-updater
+LABEL org.opencontainers.image.description="c10y link preview updater"
+LABEL org.opencontainers.image.licenses=AGPLv3
+
 WORKDIR /app
 
 # Install dependencies (cronie)
