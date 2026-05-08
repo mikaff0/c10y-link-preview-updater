@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  continuwuity-updater:
+    image: mikaff0/c10y-link-preview-updater:latest
+    container_name: continuwuity-updater
+    environment:
+      - CRON_SCHEDULE=0 * * * *  # hourly o'clock
+      # - TZ=Europe/Berlin # (default UTC)
+      # - TEMPLATE_PATH=/data/c10y.toml
+      # - DB_PATH=/data/morpheus link bot.db
+      # - OUTPUT_PATH=/data/continuwuity.toml
+    volumes:
+      - /maubot-direct/dbs/morpheus link bot.db:/data/morpheus link bot.db:ro
+      - /template-direct/c10y.toml:/data/c10y.toml:ro
+      - /continuwuity-direct/continuwuity.toml:/data/continuwuity.toml:rw
+    restart: unless-stopped

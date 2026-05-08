@@ -1,0 +1,8 @@
+# Requirements for the continuwuity updater script
+# This script updates the continuwuity.toml file with domains from the Morpheus Link Bot database.
+# Morpheus Link Bot repository: https://github.com/M2tecDev/morpheus-link-bot
+# Read Access to the Morpheus Link Bot SQLite database file (default: /maubot/dbs/morpheus link bot.db) is required.
+# Write Acces to the continuwuity.toml of your Continuwuity Homeserver is required.
+
+tomli>=2.0.0
+tomli_w>=1.0.0
